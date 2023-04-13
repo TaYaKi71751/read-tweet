@@ -34,7 +34,15 @@
 			p!="NOSCRIPT"
 		) {
 			if(parentTillArticle(e)){
-				console.log(parentTillArticle(e),ro((parentTillArticle(e))));
+				console.log(
+					parentTillArticle(e),
+					ro((parentTillArticle(e))),
+					(function(){
+						const _ = [];
+						parentTillArticle(e).querySelectorAll('[href*="/status/"]').forEach((a)=>a.href&&_.push(a.href))
+						return _;
+					})()
+				);
 			}
 			return;
 		}
